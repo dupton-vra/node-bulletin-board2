@@ -1,10 +1,9 @@
-var events = require('./events.js');
 var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'mysql',
   user: 'root',
   password: 'password',
-  database: 'DTEST1
+  database: 'DTEST1'
 })
 
 exports.events = function (req, res) {
@@ -24,9 +23,6 @@ exports.events = function (req, res) {
     }
 }
 
-  
-};
-
 exports.event = function (req, res) {
   //res.json(events[req.param.eventId]);
       connection.query('SELECT * from events where id=' + req.param.eventId, function (err, rows, fields) {
@@ -35,5 +31,5 @@ exports.event = function (req, res) {
       var obj = "{title:" + rows[0].title + "," + "details:" + rows[0].details + "," + "date:" + rows[0].date + "}"
       connection.end()
       res.end(obj);
-    }
-};
+      })
+}
