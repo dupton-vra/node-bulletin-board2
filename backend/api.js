@@ -1,36 +1,38 @@
+
 var events = require('./events.js');
-var mysql = require('mysql')
-var connection = mysql.createConnection({
-  host: 'mysql',
+var mysql = require('sync-mysql') ;
+var client = new mysql({
+  host: '192.168.195.4',
   user: 'root',
   password: 'password',
   database: 'DTEST1'
 })
+/*
+var query = "SELECT * FROM events ;" ;
+var r = client.query(query) ;
 
+console.log(r) ;
+*/
 exports.events = function (req, res) {
-    //res.json(events);
-    connection.query('SELECT * from events', function (err, rows, fields) {
-      if (err) throw err
-      console.log('The solution is: ')
-      var objs = [];
-      for (var i = 0;i < rows.length; i++) {
-          objs.push({title: rows[i].title,
-                     details: rows[i].details,
-                     date: rows[i].date
-                    });
-      }
-      connection.end()
-      res.end(JSON.stringify(objs));
-    }
-}
+   var rows = client.query('SELECT * from events')
+   for (var i = 0;i < rows.length; i++) {
+       console.log("TITLE: " + rows[i].title);
+       events.push({title: rows[i].title,
+                  detail: rows[i].details,
+                  date: rows[i].date
+                  });
 
+    }
+    res.json(events);
+
+};
 exports.event = function (req, res) {
-  //res.json(events[req.param.eventId]);
-      connection.query('SELECT * from events where id=' + req.param.eventId, function (err, rows, fields) {
-      if (err) throw err
-      console.log('The solution is: ')
-      var obj = "{title:" + rows[0].title + "," + "details:" + rows[0].details + "," + "date:" + rows[0].date + "}"
-      connection.end()
-      res.end(obj);
-      })
-}
+
+      var rows = client.query('SELECT * from events where id=' + req.param.eventId)
+
+      var obj = "{title:" + rows[0].title + "," + "detail:" + rows[0].details + "," + "date:" + rows[0].date + "}"
+      events.push(obj);
+
+    res.json(events[req.param.eventId]);
+};
+
