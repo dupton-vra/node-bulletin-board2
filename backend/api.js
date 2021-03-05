@@ -1,5 +1,6 @@
 
-var events = require('./events.js');
+//var events = require('./events.js');
+var events = [];
 var mysql = require('sync-mysql') ;
 var client = new mysql({
   host: '192.168.195.4',
@@ -28,6 +29,7 @@ exports.events = function (req, res) {
 };
 exports.event = function (req, res) {
 
+      console.log("req: " + req);
       var rows = client.query('SELECT * from events where id=' + req.param.eventId)
 
       var obj = "{title:" + rows[0].title + "," + "detail:" + rows[0].details + "," + "date:" + rows[0].date + "}"
@@ -35,4 +37,5 @@ exports.event = function (req, res) {
 
     res.json(events[req.param.eventId]);
 };
+
 
