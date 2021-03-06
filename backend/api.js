@@ -2,8 +2,15 @@
 //var events = require('./events.js');
 var events = [];
 var mysql = require('sync-mysql') ;
+var sqlHost = process.env.SQL_HOST
+if(sqlHost == null)
+{
+ console.log("ENV SQL_HOST null");
+ //throw "ENV SQL_HOST null"
+  //sqlHost = "192.168.195.37";
+}
 var client = new mysql({
-  host: '192.168.195.37',
+  host: sqlHost,
   user: 'root',
   password: 'password',
   database: 'DTEST1'
