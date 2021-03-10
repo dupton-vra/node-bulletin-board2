@@ -3,11 +3,11 @@
 var events = [];
 var mysql = require('sync-mysql') ;
 var sqlHost = process.env.SQL_HOST
-if(sqlHost == null)
+if(sqlHost == null || sqlHost == "")
 {
  console.log("ENV SQL_HOST null");
  //throw "ENV SQL_HOST null"
-  //sqlHost = "192.168.195.37";
+ sqlHost = "192.168.171.206";
 }
 var client = new mysql({
   host: sqlHost,
