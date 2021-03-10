@@ -12,6 +12,7 @@ if(sqlHost == null || sqlHost == "")
 var client = new mysql({
   host: sqlHost,
   user: 'root',
+  port: 31000,
   password: 'password',
   database: 'DTEST1'
 })
