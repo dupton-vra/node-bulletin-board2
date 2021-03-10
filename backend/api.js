@@ -7,7 +7,7 @@ if(sqlHost == null || sqlHost == "")
 {
  console.log("ENV SQL_HOST null");
  //throw "ENV SQL_HOST null"
- sqlHost = "192.168.171.206";
+ //sqlHost = "192.168.171.206";
 }
 var client = new mysql({
   host: sqlHost,
