@@ -6,6 +6,7 @@
   "author": "Ryan Chenkie, Jason Lam",
   "license": "MIT",
   "dependencies": {
+    "core-js": "^3.9.1",
     "bootstrap": "^3.3.6",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
