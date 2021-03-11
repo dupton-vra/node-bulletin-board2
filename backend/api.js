@@ -36,7 +36,7 @@ exports.events = function (req, res) {
 
 };
 exports.event = function (req, res) {
-
+/*
       console.log("req: " + req.param);
       console.log("req: " + req.param.title);
       var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
@@ -46,6 +46,8 @@ exports.event = function (req, res) {
       events.push(obj);
 
     res.json(events[req.param.eventId]);
+ */
+ res.json(events[req.param.eventId]);
 };
 
 
