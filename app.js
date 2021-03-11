@@ -1,3 +1,18 @@
+      var mysql = require('sync-mysql') ;
+      var sqlHost = process.env.SQL_HOST
+      if(sqlHost == null || sqlHost == "")
+      {
+       console.log("ENV SQL_HOST null");
+       //throw "ENV SQL_HOST null"
+       //sqlHost = "192.168.171.206";
+      }
+      var client = new mysql({
+        host: sqlHost,
+        user: 'root',
+        port: 31000,
+        password: 'password',
+        database: 'DTEST1'
+      })
 new Vue({
   el: '#events',
 
@@ -26,6 +41,8 @@ new Vue({
 
     addEvent: function () {
       if (this.event.title.trim()) {
+        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ this.event.title + " ,"+ this.event.details + "," + this.event.date + ");");
+        this.events.push(this.event);
         this.$http.post('/api/events', this.event)
           .success(function (res) {
             this.events.push(this.event);
