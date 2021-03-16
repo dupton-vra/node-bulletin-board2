@@ -23,6 +23,7 @@ var r = client.query(query) ;
 console.log(r) ;
 */
 exports.events = function (req, res) {
+   events = [];
    var rows = client.query('SELECT * from events')
    for (var i = 0;i < rows.length; i++) {
        console.log("TITLE: " + rows[i].title);
