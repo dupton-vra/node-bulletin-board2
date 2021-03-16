@@ -39,7 +39,7 @@ exports.events = function (req, res) {
 exports.event = function (req, res) {
 
       console.log("req1: " + req.param);
-      console.log("req2: " + req.param.title);
+      console.log("req2: " + req.param("title","foo"));
       var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
       //var rows = client.query('SELECT * from events where id=' + req.param.eventId)
 
