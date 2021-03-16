@@ -46,7 +46,7 @@ exports.event = function (req, res) {
       var obj = "{title:" + rows[0].title + "," + "detail:" + rows[0].details + "," + "date:" + rows[0].date + "}"
       events.push(obj);
 
-    res.json(events[req.param.eventId]);
+    res.json(events[rows[0].id]);
  
  //res.json(events[req.param.eventId]);
 };
