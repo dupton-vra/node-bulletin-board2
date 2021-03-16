@@ -41,7 +41,12 @@ new Vue({
 
     addEvent: function () {
       if (this.event.title.trim()) {
-        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ this.event.title + " ,"+ this.event.details + "," + this.event.date + ");");
+        try{ 
+            var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ this.event.title + " ,"+ this.event.details + "," + this.event.date + ");");
+        } catch(e)
+        {
+            console.log("ER: " + e);     
+        }
         this.events.push(this.event);
         this.$http.post('/api/events', this.event)
           .success(function (res) {
