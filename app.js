@@ -1,4 +1,4 @@
-      var mysql = require('sync-mysql') ;
+      /*var mysql = require('sync-mysql') ;
       var sqlHost = process.env.SQL_HOST
       if(sqlHost == null || sqlHost == "")
       {
@@ -12,7 +12,7 @@
         port: 31000,
         password: 'password',
         database: 'DTEST1'
-      })
+      })*/
 new Vue({
   el: '#events',
 
@@ -41,12 +41,12 @@ new Vue({
 
     addEvent: function () {
       if (this.event.title.trim()) {
-        try{ 
+        /*try{ 
             var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ this.event.title + " ,"+ this.event.details + "," + this.event.date + ");");
         } catch(e)
         {
             console.log("ER: " + e);     
-        }
+        }*/
         this.events.push(this.event);
         this.$http.post('/api/events', this.event)
           .success(function (res) {
