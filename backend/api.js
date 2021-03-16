@@ -45,10 +45,12 @@ exports.event = function (req, res) {
       //var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
       //var rows = client.query('SELECT * from events where id=' + req.param.eventId)
       console.log("rows: " + rows);
+      console.log("rows: " + rows[0].id);
       var obj = "{title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
       events.push(obj);
 
     res.json(events[rows[0].id]);
+ 
  
  //res.json(events[req.param.eventId]);
 };
