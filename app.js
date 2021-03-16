@@ -1,4 +1,4 @@
-      var mysql = require('sync-mysql') ;
+      /*var mysql = require('sync-mysql') ;
       var sqlHost = process.env.SQL_HOST
       if(sqlHost == null || sqlHost == "")
       {
@@ -12,7 +12,7 @@
         port: 31000,
         password: 'password',
         database: 'DTEST1'
-      })
+      })*/
 new Vue({
   el: '#events',
 
