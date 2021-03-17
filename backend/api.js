@@ -50,7 +50,7 @@ exports.event = function (req, res) {
       var obj = "{title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
       events.push(obj);
 
-    res.json(events[req.param("eventId",null);
+    res.json(events[req.param("eventId",null));
  
  
  //res.json(events[req.param.eventId]);
