@@ -37,20 +37,20 @@ exports.events = function (req, res) {
 
 };
 exports.event = function (req, res) {
- console.log("req10: " + req);
-      console.log("req11: " + req.params);
-      console.log("req1: " + req.params.title);
-      console.log("req2: " + req.param("title","foo") + " " + req.param("detail","foo") + " " + req.param("date","foo"));    
-      console.log("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title","foo") + "','"+ req.param("detail","foo")+ "','" + req.param("date","foo") + "');")
+      //console.log("req10: " + req);
+      //console.log("req11: " + req.params);
+      //console.log("req1: " + req.params.title);
+      //console.log("req2: " + req.param("title","foo") + " " + req.param("detail","foo") + " " + req.param("date","foo"));    
+      //console.log("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title","foo") + "','"+ req.param("detail","foo")+ "','" + req.param("date","foo") + "');")
       var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title","foo") + "','"+ req.param("detail","foo")+ "','" + req.param("date","foo") + "');");
       //var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
       //var rows = client.query('SELECT * from events where id=' + req.param.eventId)
-      console.log("rows: " + rows);
-      console.log("rows: " + rows[0].id);
+      //console.log("rows: " + rows);
+      //console.log("rows: " + rows[0].id);
       var obj = "{title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
       events.push(obj);
 
-    res.json(events[rows[0].id]);
+    res.json(events[req.param("eventId",null);
  
  
  //res.json(events[req.param.eventId]);
