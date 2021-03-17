@@ -37,6 +37,7 @@ exports.events = function (req, res) {
 
 };
 exports.event = function (req, res) {
+ console.log("req10: " + req);
       console.log("req11: " + req.params);
       console.log("req1: " + req.params.title);
       console.log("req2: " + req.param("title","foo") + " " + req.param("detail","foo") + " " + req.param("date","foo"));    
