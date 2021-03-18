@@ -39,8 +39,8 @@ exports.events = function (req, res) {
 };
 exports.event = function (req, res) {
       console.log("req: " + req);
-      console.log("req1: " + req.param("id",null));
-      console.log("req2: " + req.param("Id",null));
+      console.log("req1: " + req[0];
+      console.log("req2: " + req.toString());
       //console.log("req10: " + req);
       //console.log("req11: " + req.params);
       //console.log("req1: " + req.params.title);
