@@ -58,8 +58,6 @@ exports.event = function (req, res) {
         console.log("req1: " + req.body);
         console.log("req2: " + req.parms);
         console.log("req3: " + req.query);
-
-        }
          //console.log("req2: " + req.toString());
      }
       
