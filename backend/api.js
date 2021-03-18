@@ -57,10 +57,9 @@ exports.event = function (req, res) {
         console.log("req: " + req);
         console.log("req1: " + req.body);
         console.log("req3: " + req.body[0]);
-        for each(var b in req.body)
-        {
-          console.log("b: " + b);
-        }
+        req.body.forEach((item) => { 
+          console.log("b: " + item);
+        })
          //console.log("req2: " + req.toString());
      }
       
