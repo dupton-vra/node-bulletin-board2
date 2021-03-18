@@ -55,8 +55,8 @@ exports.event = function (req, res) {
        res.json(events[rows[0].id]);
      } else {
         console.log("req: " + req);
-        console.log("req1: " + req[0]);
-        console.log("req2: " + req.toString());
+        console.log("req1: " + req.getOwnPropertyNames());
+        //console.log("req2: " + req.toString());
      }
       
       //var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
