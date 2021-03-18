@@ -55,7 +55,7 @@ exports.event = function (req, res) {
        res.json(events[rows[0].id]);
      } else {
         console.log("req: " + req);
-        console.log("req1: " + req[0];
+        console.log("req1: " + req[0]);
         console.log("req2: " + req.toString());
      }
       
