@@ -63,12 +63,14 @@ new Vue({
       if (confirm('Are you sure you want to delete this event?')) {        
         this.$http.delete('api/events/' + id)
           .success(function (res) {
-            console.log(res);
+            console.log("RES: " + res);
+            console.log("ID: " + id)
             var index = this.events.find(x => x.id === id)
+            console.log("index: " + index);
             this.events.splice(index, 1);
           })
           .error(function (err) {
-            console.log(err);
+            console.log("ERR: " + err);
           });
       }
     }
