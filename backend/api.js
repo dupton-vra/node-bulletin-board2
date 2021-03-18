@@ -56,8 +56,8 @@ exports.event = function (req, res) {
      } else {
         console.log("req: " + req);
         console.log("req1: " + req.body);
-        console.log("req3: " + req.parm);
-        console.log("req4: " + req.parms);
+        console.log("req3: " + req.body.title);
+        console.log("req4: " + req.body.id);
          //console.log("req2: " + req.toString());
      }
       
