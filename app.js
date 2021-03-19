@@ -60,6 +60,8 @@ new Vue({
     },
 
     deleteEvent: function (id) {
+          
+      console.log("ID0: " + id)
       if (confirm('Are you sure you want to delete this event?')) {   
         console.log("ID1: " + id)
         this.$http.delete('api/events/' + id)
