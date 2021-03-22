@@ -55,6 +55,7 @@ exports.event = function (req, res) {
        res.json(events[rows[0].id]);
      } else {
         console.log("DELETE ITEM: " + req.params.eventId);
+        console.log("DELETE FROM events where( id = " + (parseInt(req.params.eventId) + 1) + ");");
         var rows = client.query("DELETE FROM events where( id = " + (parseInt(req.params.eventId) + 1) + ");");
         var rowSelector = events[parseInt(req.params.eventId)];
         console.log("rowSelector: " + rowSelector);
