@@ -54,11 +54,11 @@ exports.event = function (req, res) {
       console.log("row: " + rows[0].id);
        res.json(events[rows[0].id]);
      } else {
-        console.log("req: " + JSON.stringify(req));
-        console.log("req1: " + JSON.stringify(req.body));
+        console.log("req: " + req.keys);
+        console.log("req1: " + req.body.attributes);
         console.log("req2: " + req.params['id']);
       console.log("req2: " + req.params['title']);
-        console.log("req3: " + JSON.stringify(req.query));
+        console.log("req3: " + req.query);
          //console.log("req2: " + req.toString());
      }
       
