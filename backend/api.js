@@ -54,14 +54,8 @@ exports.event = function (req, res) {
       console.log("row: " + rows[0].id);
        res.json(events[rows[0].id]);
      } else {
-        console.log("req: " + req.eventId);
-        console.log("req: " + req.query.eventId);
-        console.log("req1: " + req.body.eventId);
-        console.log("req2: " + req.params.eventId);
-        console.log("req2: " + req.params['id']);
-        console.log("req2: " + req.params['title']);
-        console.log("req3: " + req.query);
-         //console.log("req2: " + req.toString());
+        console.log("DELETE ITEM: " + req.params.eventId);
+        var rows = client.query("DELETE FROM events where id = " + req.params.eventId + ");");
      }
       
       //var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
