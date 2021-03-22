@@ -54,8 +54,10 @@ exports.event = function (req, res) {
       console.log("row: " + rows[0].id);
        res.json(events[rows[0].id]);
      } else {
+        console.log("req: " + req.eventId);
         console.log("req: " + req.query.eventId);
-        console.log("req1: " + req.body);
+        console.log("req1: " + req.body.eventId);
+        console.log("req2: " + req.params.eventId);
         console.log("req2: " + req.params['id']);
         console.log("req2: " + req.params['title']);
         console.log("req3: " + req.query);
