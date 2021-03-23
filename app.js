@@ -50,8 +50,15 @@ new Vue({
         this.events.push(this.event);
         this.$http.post('/api/events', this.event)
           .success(function (res) {
-            this.events.push(this.event);
-            this.event =   { title: '', detail: '', date: '' };
+            //this.events.push(this.event);
+            this.$http.get('/api/events')
+                  .success(function (events) {
+                        this.$set('events', events);
+                        console.log(events);
+                   })
+                  .error(function (err) {
+                        console.log(err);
+                  });
             console.log('Event added!');
           })
           .error(function (err) {
@@ -67,11 +74,18 @@ new Vue({
         console.log("ID1: " + id)
         this.$http.delete('api/events/' + id)
           .success(function (res) {
-            console.log("RES: " + res);
-            console.log("ID: " + id)
-            var index = this.events.find(x => x.id === id)
-            console.log("index: " + index);
-            this.events.splice(index - 1 , 1);
+            //var index = this.events.find(x => x.id === id)
+            //console.log("index: " + index);
+            //this.events.splice(index - 1 , 1);
+               this.$http.get('/api/events')
+                  .success(function (events) {
+                        this.$set('events', events);
+                        console.log(events);
+                   })
+                  .error(function (err) {
+                        console.log(err);
+                  });   
+            
           })
           .error(function (err) {
             console.log("ERR: " + err);
