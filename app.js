@@ -71,7 +71,7 @@ new Vue({
             console.log("ID: " + id)
             var index = this.events.find(x => x.id === id)
             console.log("index: " + index);
-            this.events.splice(index, 1);
+            this.events.splice(index - 1 , 1);
           })
           .error(function (err) {
             console.log("ERR: " + err);
