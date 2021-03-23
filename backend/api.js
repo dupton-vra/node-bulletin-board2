@@ -27,7 +27,8 @@ exports.events = function (req, res) {
    var rows = client.query('SELECT * from events')
    for (var i = 0;i < rows.length; i++) {
        console.log("TITLE: " + rows[i].title);
-       events.push({ id: i,
+       console.log("ID: " + rows[i].id);
+       events.push({ id: rows[i].id,
                      title: rows[i].title,
                      detail: rows[i].details,
                      date: rows[i].date
