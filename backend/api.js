@@ -58,9 +58,9 @@ exports.event = function (req, res) {
         console.log("DELETE ITEM: " + req.params.eventId);
         console.log("DELETE FROM events where( id = " + req.params.eventId + ");");
         var rows = client.query("DELETE FROM events where( id = " + req.params.eventId + ");");
-        var rowSelector = events[parseInt(req.params.eventId)];
-        console.log("rowSelector: " + rowSelector);
-        console.log("rowSelector id : " + rowSelector.id);
+        // rowSelector = events[parseInt(req.params.eventId)];
+        //console.log("rowSelector: " + rowSelector);
+        //console.log("rowSelector id : " + rowSelector.id);
         
 
      }
