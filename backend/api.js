@@ -40,39 +40,22 @@ exports.events = function (req, res) {
 };
 exports.event = function (req, res) {
 
-      //console.log("req10: " + req);
-      //console.log("req11: " + req.params);
-      //console.log("req1: " + req.params.title);
-      //console.log("req2: " + req.param("title","foo") + " " + req.param("detail","foo") + " " + req.param("date","foo"));    
-      //console.log("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title","foo") + "','"+ req.param("detail","foo")+ "','" + req.param("date","foo") + "');")
-      
      if(req.param("title",null) != null)
      {
-       console.log("HERE: " + req.param("title",null));
-       var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title",null) + "','"+ req.param("detail",null)+ "','" + req.param("date",null) + "');");
-       var obj = "{id:" + rows[0].id + "," + "title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
-       events.push(obj);
-      console.log("row: " + rows[0].id);
-       res.json(events[rows[0].id]);
+        console.log("HERE: " + req.param("title",null));
+        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title",null) + "','"+ req.param("detail",null)+ "','" + req.param("date",null) + "');");
+        var obj = "{id:" + rows[0].id + "," + "title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
+        events.push(obj);
+        console.log("row: " + rows[0].id);
+        res.json(events[rows[0].id]);
      } else {
         console.log("DELETE ITEM: " + req.params.eventId);
         console.log("DELETE FROM events where( id = " + req.params.eventId + ");");
-        var rows = client.query("DELETE FROM events where( id = " + req.params.eventId + ");");
-        // rowSelector = events[parseInt(req.params.eventId)];
-        //console.log("rowSelector: " + rowSelector);
-        //console.log("rowSelector id : " + rowSelector.id);
-        
-
+        var rows = client.query("DELETE FROM events where( id = " + req.params.eventId + ");");        
+        res.json(events[req.params.eventId])
      }
       
-      //var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,"+ req.param.title + " ,"+ req.param.details + "," + req.param.date + ");");
-      //var rows = client.query('SELECT * from events where id=' + req.param.eventId)
-      //console.log("rows: " + rows);
-      //console.log("rows: " + rows[0].id);
-      res.json(events);
- 
- 
- //res.json(events[req.param.eventId]);
+
 };
 
 
