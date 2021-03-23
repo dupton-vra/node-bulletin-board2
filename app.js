@@ -51,6 +51,7 @@ new Vue({
         this.$http.post('/api/events', this.event)
           .success(function (res) {
             this.events.push(this.event);
+            this.event =   { title: '', detail: '', date: '' };
             console.log('Event added!');
           })
           .error(function (err) {
