@@ -45,6 +45,7 @@ exports.event = function (req, res) {
         
         console.log("HERE1: " + req.body.title);
         var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.body.title + "','"+ req.body.detail + "','" + req.body.date + "');");
+        console.log("ROWS: " + rows);
         var obj = {id: rows[0].id,
                    title: req.body.title,
                    detail: req.body.detail,
