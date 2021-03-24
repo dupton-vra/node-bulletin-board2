@@ -47,13 +47,14 @@ new Vue({
         {
             console.log("ER: " + e);     
         }*/
-        this.events.push(this.event);
+        //this.events.push(this.event);
         this.$http.post('/api/events', this.event)
           .success(function (res) {
             //this.events.push(this.event);
             this.$http.get('/api/events')
                   .success(function (events) {
                         this.$set('events', events);
+                        this.event = { title: '', detail: '', date: '' };
                         console.log(events);
                    })
                   .error(function (err) {
@@ -80,6 +81,7 @@ new Vue({
                this.$http.get('/api/events')
                   .success(function (events) {
                         this.$set('events', events);
+                        this.event = { title: '', detail: '', date: '' };
                         console.log(events);
                    })
                   .error(function (err) {
