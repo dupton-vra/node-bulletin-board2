@@ -48,14 +48,13 @@ exports.event = function (req, res) {
         var rows = client.query('SELECT * from events')
         console.log("LENGTH: " + rows.length);
         console.log("row: " + rows[rows.length -1].id)
-        console.log("row: " + rows[rows.length].id)
-        var obj = {id: rows[rows.length].id,
+        console.log("row: " + rows[rows.length -1].title)
+        var obj = {id: rows[rows.length -1].id,
                    title: req.body.title,
                    detail: req.body.detail,
                    date: req.body.date }
         events.push(obj);
-        console.log("row: " + rows[0].id);
-        res.json(events[rows[0].id]);
+        res.json(events[rows[rows.length -1].id]);
      } else {
         console.log("DELETE ITEM: " + req.params.eventId);
         console.log("DELETE FROM events where( id = " + req.params.eventId + ");");
