@@ -50,9 +50,9 @@ exports.event = function (req, res) {
         console.log("row: " + rows[rows.length -1].id)
         console.log("row: " + rows[rows.length -1].title)
         var obj = {id: rows[rows.length -1].id,
-                   title: req.body.title,
-                   detail: req.body.detail,
-                   date: req.body.date }
+                   title: rows[rows.length -1].title,
+                   detail: rows[rows.length -1].detail,
+                   date: rows[rows.length -1].date }
         events.push(obj);
         res.json(events[events.lenght -1]);
      } else {
