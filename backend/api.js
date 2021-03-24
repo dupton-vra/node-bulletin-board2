@@ -44,10 +44,12 @@ exports.event = function (req, res) {
      {
         
         console.log("HERE1: " + req.body.title);
-        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.body.title + "','"+ req.body.detail + "','" + req.body.date + "');");
-        console.log("ROWS: " + rows[0]);
-        console.log("ROWS: " + rows.id);
-        var obj = {id: rows[0].id,
+        client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.body.title + "','"+ req.body.detail + "','" + req.body.date + "');");
+        var rows = client.query('SELECT * from events')
+        console.log("LENGTH: " + rows.length);
+        console.log("row: " + rows[rows.length -1].id)
+        console.log("row: " + rows[rows.length].id)
+        var obj = {id: rows[rows.length].id,
                    title: req.body.title,
                    detail: req.body.detail,
                    date: req.body.date }
