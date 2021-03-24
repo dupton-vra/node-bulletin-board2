@@ -54,7 +54,7 @@ exports.event = function (req, res) {
                    detail: req.body.detail,
                    date: req.body.date }
         events.push(obj);
-        res.json(events[rows[rows.length -1].id]);
+        res.json(obj);
      } else {
         console.log("DELETE ITEM: " + req.params.eventId);
         console.log("DELETE FROM events where( id = " + req.params.eventId + ");");
