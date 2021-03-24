@@ -42,7 +42,9 @@ exports.event = function (req, res) {
 
      if(req.param("title",null) != null)
      {
-        console.log("HERE: " + req.param("title",null));
+        
+        console.log("HERE1: " + req.body.title);
+        console.log("HERE2: " + req.parms.title);
         var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title",null) + "','"+ req.param("detail",null)+ "','" + req.param("date",null) + "');");
         var obj = "{id:" + rows[0].id + "," + "title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
         events.push(obj);
