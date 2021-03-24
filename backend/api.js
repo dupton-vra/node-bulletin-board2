@@ -45,7 +45,10 @@ exports.event = function (req, res) {
         
         console.log("HERE1: " + req.body.title);
         var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.body.title + "','"+ req.body.detail + "','" + req.body.date + "');");
-        var obj = {id:" + rows[0].id + "," + "title:" + req.body.title + "," + "detail:" + req.body.detail + "," + "date:" + req.body.date + "}
+        var obj = {id: rows[0].id,
+                   title: req.body.title,
+                   detail: req.body.detail,
+                   date: req.body.date }
         events.push(obj);
         console.log("row: " + rows[0].id);
         res.json(events[rows[0].id]);
