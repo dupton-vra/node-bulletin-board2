@@ -39,14 +39,13 @@ exports.events = function (req, res) {
 
 };
 exports.event = function (req, res) {
-
+     console.log("body: " + req.body);
      if(req.param("title",null) != null)
      {
         
         console.log("HERE1: " + req.body.title);
-        console.log("HERE2: " + req.parms.title);
-        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.param("title",null) + "','"+ req.param("detail",null)+ "','" + req.param("date",null) + "');");
-        var obj = "{id:" + rows[0].id + "," + "title:" + req.param("title","foo") + "," + "detail:" + req.param("detail","foo") + "," + "date:" + req.param("date","foo") + "}"
+        var rows = client.query("INSERT INTO events (id,title, details, date) VALUES (null,'"+ req.body.title + "','"+ req.body.detail + "','" + req.body.date + "');");
+        var obj = {id:" + rows[0].id + "," + "title:" + req.body.title + "," + "detail:" + req.body.detail + "," + "date:" + req.body.date + "}
         events.push(obj);
         console.log("row: " + rows[0].id);
         res.json(events[rows[0].id]);
